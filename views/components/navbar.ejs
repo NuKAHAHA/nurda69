@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ff69b4;"> <!-- Изменение фона на розовый цвет -->
+    <div class="container">
+      <a class="navbar-brand me-2" href="/">
+        <img
+          src="/images/logo.jpg"
+          height="48"
+          alt="Cloud logo"
+          loading="lazy"
+          style="margin-top: -1px;"
+        />
+      </a>
+  
+      <button
+        data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarButtonsExample"
+        aria-controls="navbarButtonsExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link <% if (activePage === 'home') { %>active fw-semibold text-primary<% } %>" href="/">Home</a>
+          </li>
+          <% if (user) { %>
+            <li class="nav-item">
+              <a class="nav-link <% if (activePage === 'history') { %>active fw-semibold text-primary<% } %>" href="/history">History</a>
+            </li>
+            
+                <li class="nav-item">
+                  <a class="nav-link <% if (activePage === 'admin') { %>active fw-semibold text-primary<% } %>" href="/admin">Admin Panel</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link <% if (activePage === 'convertcurrency') { %>active fw-semibold text-primary<% } %>" href="/convertcurrency">Currency Conversions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <% if (activePage === 'fooballNews') { %>active fw-semibold text-primary<% } %>" href="/team-info">Football Team</a>
+            </li>
+          <% } %>
+        </ul>
+          <div class="d-flex ms-auto">
+            <% if (!user) { %>
+              <a href="/login" class="btn btn-primary">Login</a>
+              <a href="/signup" class="btn btn-secondary ml-2">Sign up</a>
+            <% } else { %>
+              <a href="<%= user.is_admin ? '/admin' : '' %>" class="btn btn-primary rounded-3"><%= user.username %></a>&nbsp;&nbsp;
+              <a href="/logout" class="btn btn-secondary">Logout</a>
+            <% } %>
+        </div>
+          <a
+            class="btn btn-dark px-3"
+            href="https://github.com/AidanaIbrayeva"
+            role="button"
+            target="__blank"
+          ><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+    </div>
+    
+</nav>
+<hr class="m-0 p-0" style="border-top: 2px solid #ff69b4;" />
+  

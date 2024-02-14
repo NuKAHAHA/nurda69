@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Conversion</title>
+    <%- include('../components/head.ejs') %>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #eb31b0;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #eb31b0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../components/navbar.ejs') %>
+    <h1>Currency Conversion</h1>
+    <form action="convertcurrency" method="GET">
+        <label for="have">Currency you currently hold (3-character code):</label><br>
+        <input type="text" id="have" name="have" required><br><br>
+
+        <label for="want">Currency you want to convert to (3-character code):</label><br>
+        <input type="text" id="want" name="want" required><br><br>
+
+        <label for="amount">Amount of currency to convert:</label><br>
+        <input type="number" id="amount" name="amount" required><br><br>
+
+        <input type="submit" value="Convert">
+    </form>
+
+    <h2>Conversion Result</h2>
+    <p>New Amount: <%= conversionResult.new_amount %></p>
+  
+</body>
+</html>
+
+

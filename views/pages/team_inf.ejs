@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Info</title>
+</head>
+<body>
+<h1>Team Information</h1>
+<!-- Форма для ввода названия команды -->
+<form action="/team-info" method="post">
+    <label for="teamName">Enter Team Name:</label>
+    <input type="text" id="teamName" name="teamName">
+    <button type="submit">Get Info</button>
+</form>
+
+<% if (teamInfo) { %>
+    <p>Team Name: <%= teamInfo.name %></p>
+    <p>Founded: <%= teamInfo.founded %></p>
+    <p>Venue: <%= teamInfo.venue_name %></p>
+    <p>Country: <%= teamInfo.country %></p>
+    <p>Logo: <img src="<%= teamInfo.logo %>"></p>
+<% } else { %>
+    <p>Team information not found</p>
+<% } %>
+</body>
+</html>
